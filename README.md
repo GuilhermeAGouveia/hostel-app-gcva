@@ -33,20 +33,23 @@ Para instalar o hostel-app-gcva, siga estas etapas:
 git clone https://github.com/celso-patiri/hostel-app-gcva.git
 ```
 > Se vc já tem o repositório hostel-app-gcva instalado, rode o comando `make drop` no seu repositório local antes de reiniciar o projeto com os passos abaixo
-
-2. Dentro do diretório em que o repositório foi iniciado, execute na primeira vez (isso inicia os containers mysql e payara-server):
+2. Copy .env.example as .env:
+```
+cp .env.example .env
+```
+3. Dentro do diretório em que o repositório foi iniciado, execute na primeira vez (isso inicia os containers mysql e payara-server):
 ```
 make init
 ```
-3. Inicie um connection pool (necessário para que o backend funcione)
+4. Inicie um connection pool (necessário para que o backend funcione)
 ```
 make set_connection_pool
 ```
-4. Faça o deploy de tudo no Payara Server Docker
+5. Faça o deploy de tudo no Payara Server Docker
 ```
 make deploy_all
 ```
-5. Depois do deploy, tende ver o resultado em: http://localhost:8080/frontend
+6. Depois do deploy, tende ver o resultado em: http://localhost:8080/frontend
 > #### Observações: 
 > 1. A primeira vez tende a ser demorada, pois é necessário download de diversar dependências
 > 2. Se estiver em uma distro linux, e houver erro de permissão, tente adicionar `sudo` aos comandos `make`, exemplo:
